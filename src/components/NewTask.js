@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {MDBBtn, MDBIcon } from 'mdbreact';
 
 class NewTask extends Component {
@@ -31,9 +31,27 @@ class NewTask extends Component {
                     date: e.target.value
                 });
 		}
-    };    
-	render() {
+    };  
+    
+    handleSubmit = e => {
+		e.preventDefault();
+    };
+    
+    handleClick = () => {
+        const {value, desc, checked, date} = this.state;
+        const add = this.props.add(value, desc, checked, date);
 
+        if(add){
+            this.setState({
+                value: "",
+                desc: "",
+                checked: false,
+                date: this.minDate
+            });
+        }
+    }
+    
+	render() {
         return (
         <div className="form mb-4" style={{border:"1px solid #EEE", padding:"20px", background:"#F8F8F8"}}>
                     <h4>Dodaj nowe zadanie</h4>
@@ -55,7 +73,7 @@ class NewTask extends Component {
                         id="formDesc"
                         className="form-control"
                         onChange={this.handleChange}
-                        defaultValue={this.state.desc}
+                        value={this.state.desc}
                     ></textarea>
                 </div>
                 <div className="mb-4">
@@ -74,7 +92,7 @@ class NewTask extends Component {
                         type="checkbox" 
                         className="custom-control-input" 
                         id="checkboxForm"
-                        value={this.state.checked}
+                        checked={this.state.checked}
                         onChange={this.handleChange}
                     />
                     <label className="custom-control-label" htmlFor="checkboxForm" style={{fontSize:"90%",paddingTop:"2px"}}>Wysoki priorytet</label>
@@ -83,7 +101,7 @@ class NewTask extends Component {
                 <div className="text-left mt-4">
                 <p style = {{color: "#999", fontSize : "80%"}}>Klikając poniższy przycisk - zadanie które chcesz dodać będzie widoczne na liście zadań do zrealizowania.</p>
 
-                    <MDBBtn className="btn btn-teal ml-0">
+                    <MDBBtn className="btn btn-teal ml-0" onClick={this.handleClick}>
                         Dodaj nowe zadanie
                         <MDBIcon far icon="paper-plane" className="ml-2" />
                     </MDBBtn>
