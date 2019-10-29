@@ -1,5 +1,5 @@
 import React from 'react';
-import {MDBBtn, MDBIcon, MDBCard, MDBCardBody, MDBCardTitle } from 'mdbreact';
+import {MDBBtn, MDBIcon } from 'mdbreact';
 
 
 const NewTask = props => {
@@ -8,11 +8,8 @@ const NewTask = props => {
     }
 
 	return(
-        <MDBCard style={{fontWeight:"300"}}>
-            <MDBCardBody>
-                <MDBCardTitle>
+        <div className="mb-4" style={{border:"1px solid #EEE", padding:"20px", background:"#F8F8F8"}}>
                     <h4>Dodaj nowe zadanie</h4>
-                </MDBCardTitle>
                 <hr/>
                 <div className="mb-2">
                     <label htmlFor="formTitle" className="grey-text" style={{fontSize:"80%"}}>Nazwa zadania</label>
@@ -50,8 +47,7 @@ const NewTask = props => {
                         <MDBIcon far icon="paper-plane" className="ml-2" />
                     </MDBBtn>
                 </div>
-            </MDBCardBody>
-        </MDBCard>
+        </div>
     )
 };
 

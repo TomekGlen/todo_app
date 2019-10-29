@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <MDBContainer>
-        <MDBRow center className="mt-2">
+        <MDBRow center className="mt-5">
           <MDBCol md="12" className="text-left mb-5">
             <h1 style={{fontSize:"200%"}}><span className="teal-text" style={{fontWeight:700}}>Aplikacja testowa</span> do tworzenia list zadań</h1>
             <p style = {{color: "#999", fontSize : "90%"}}>To jest aplikacja realizowana dzięki poradnikowi na potrzeby nauki ReactJS (komponenty, funkcje strzałkowe, stany). Skorzystałem z biblioteki <span className="teal-text"><b>Material Design Bootstrap</b></span>.</p>
